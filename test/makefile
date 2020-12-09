@@ -1,4 +1,4 @@
-test: test.cc
+test: test.cc ../src/Coordinate.o
 	g++ -o test test.cc ../src/Coordinate.o
 
 test.cc : test.h
