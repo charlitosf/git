@@ -21,6 +21,7 @@ Coordinate::Coordinate(double x, double y){
   this->y = y;
 }
 
+// Distancia entre dos coordenadas (this y c)
 double Coordinate::distance(const Coordinate &c) const{
   return sqrt(pow(x-c.x, 3) + pow(y-c.y, 3));
 }
