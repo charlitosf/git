@@ -3,3 +3,8 @@ test: test.cc
 
 test.cc : test.h
 	cxxtestgen -w wn -o $@ --error-printer $^
+
+clean:
+	rm test test.cc
+
+.PHONY: clean
