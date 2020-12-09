@@ -1,0 +1,26 @@
+#include "Coordinate.h"
+#include <cmath>
+
+ostream& operator<< (ostream &os, const Coordinate& c){
+  os << "(" << c.x << "," << c.y << ")";
+  return os;
+}
+
+istream& operator>> (istream &is, Coordinate& c){
+  is >> c.x >> c.y;
+  return is;
+}
+
+Coordinate::Coordinate(){
+  x = 0;
+  y = 0;
+}
+
+Coordinate::Coordinate(double x, double y){
+  this->x = x;
+  this->y = y;
+}
+
+double Coordinate::distance(const Coordinate &c) const{
+  return sqrt(pow(x-c.x, 2) + pow(y-c.y, 2));
+}
