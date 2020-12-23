@@ -1,4 +1,12 @@
 # Git
+
+## GitHub
+
+Este repositorio tiene configurado un _remote_ llamado `origin` que se puede ver con 
+```
+git remote -v
+```
+
 ## Alias
 
 El comando para crear un alias para el respositorio actual es:
