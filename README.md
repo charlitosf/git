@@ -1,8 +1,5 @@
-# Sistemas de Control de Versiones
-
-## Git
-
-### Alias
+# Git
+## Alias
 
 El comando para crear un alias para el respositorio actual es:
 
@@ -18,7 +15,7 @@ git config --global alias.[alias] "comando"
 
 Algunos de los alias usados con git son:
 
-#### Globales
+### Globales
 
 ```
 alias = ! git config --get-regexp ^alias\. | sed -e s/^alias\.// -e s/\ /\ =\ /
@@ -27,7 +24,7 @@ c = commit
 ca = commit -a
 ```
 
-#### Locales
+### Locales
 
 ```
 c = commit
@@ -35,7 +32,7 @@ ca = commit -a
 p = push
 ```
 
-### Bisect
+## Bisect
 
 Para probar bisect, he introducido un bug en el commit `77759de`, sabiendo que el código funcionaba en `e9de2bd` (puesto que ahí implemento make test).
 
@@ -67,3 +64,19 @@ Y acabamos con
 ```
 git bisect reset
 ```
+
+## Hooks
+
+Con respecto a los hooks, se han creado dos de ellos en la carpeta .git/hooks
+
+### pre-commit
+
+El hook _pre-commit_ se ejecuta antes de la lógica relacionada con `git commit`, por lo que se ejecuta siempre; aunque no se pueda realizar un commit en realidad.
+
+Este hook se encarga de comprobar que exista el directorio test, el goal test en el makefile de la raíz del proyecto y de ejecutar los tests. Si algo falla, aborta el commit.
+
+### post-commit
+
+_post-commit_, por el contrario, solo se ejecuta si el commit se ha realizado con éxito (y después de que termine su ejecución, claro).
+
+Este hook simplemente enseña al usuario el SHA-1 del commit que se acaba de confirmar.
