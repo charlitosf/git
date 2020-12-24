@@ -1,2 +1,4 @@
 *.o
 evacuationOfHoth
+test
+test.cc
